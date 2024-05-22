@@ -36,7 +36,7 @@ def validate_password(value: str) -> [str, ValidationError]:
         [str, ValidationError]: value if validated else exception
     """
     pattern: str = (
-        "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{6,15}$"
+        r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{6,15}$"
     )
 
     if re.match(pattern, value):

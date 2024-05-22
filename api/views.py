@@ -1,8 +1,8 @@
 """API Views"""
 
+from rest_framework import viewsets
 from backend.models import User
 from api.serializers import UserSerializer
-from rest_framework import viewsets
 
 # Create your views here.
 

@@ -15,6 +15,7 @@ repos:
   - repo: local
     hooks:
       - id: pylint
+        exclude: '/migrations/'
         name: pylint
         entry: pylint
         language: python

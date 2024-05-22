@@ -11,7 +11,10 @@ django = "^4.2.5"
 pre-commit = "^3.4.0"
 black = "^23.9.1"
 djangorestframework = "^3.14.0"
+pylint-django = "^2.5.5"
 
+[tool.pylint."MESSAGES CONTROL"]
+disable = ["E1101", "W0718", "E0401", "E0611", "too-many-ancestors"]
 
 [build-system]
 requires = ["poetry-core"]
