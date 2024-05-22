@@ -2,7 +2,8 @@
 
 from django.db import models
 from django.utils import timezone
-from backend.validators import (  # pylint: disable=E0611
+from django.contrib.auth.hashers import make_password
+from backend.validators import (
     validate_username,
     validate_password,
 )
@@ -28,9 +29,19 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
-        # Update the 'updated_at' field whenever the record is saved.
+        """
+        Save the user object to the database.
+
+        Parameters:
+            *args: Variable length argument list.
+            **kwargs: Arbitrary keyword arguments.
+
+        Returns:
+            None
+        """
+        self.password = make_password(self.password)
         self.updated_at = timezone.now()
-        super(User, self).save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.name}"
